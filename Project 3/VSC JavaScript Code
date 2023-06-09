@@ -1,0 +1,162 @@
+import numpy as np
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+import pandas as pd
+from flask import Flask, jsonify, render_template
+#################################################
+# Database Setup
+#################################################
+engine = create_engine(“sqlite:///data/titanic.sqlite”)
+# reflect an existing database into a new model
+Base = automap_base()
+# reflect the tables
+Base.prepare(autoload_with=engine)
+
+# A pie chart
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Suicides', 'Deaths (per hundred thousand)'],
+          ['Firearms',     11],
+          ['Poisoning',      2],
+          ['Overdose',  2],
+          ['Hanging', 2],
+          ['Suffocation',    7]
+          ['Cutting and Piercing',  2]
+        ]);
+
+        var options = {
+          title: 'Suicide Methods'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+
+# 3D Pie Chart
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          [''Suicides', 'Deaths (per hundred thousand)''],
+          ['Firearms',     11],
+          ['Poisoning',      2],
+          ['Overdose',  2],
+          ['Hanging', 2],
+          ['Suffocation',    7]
+          ['Cutting and Piercing',  2]
+        ]);
+
+        var options = {
+          title: 'Suicide Methods',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+
+ # A Donut Pie Chart
+
+ <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Suicides', 'Deaths (per hundred thousand)'],
+          ['Firearms',     11],
+          ['Poisoning',      2],
+          ['Overdose',  2],
+          ['Hanging', 2],
+          ['Suffocation',    7]
+          ['Cutting and Piercing',  2]
+        ]);
+
+        var options = {
+          title: 'Suicide Methods',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+
+# Exploding a Slice Pie Chart
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Suicides', 'Deaths (per hundred thousand)'],
+          ['Firearms',     11],
+          ['Poisoning',      2],
+          ['Overdose',  2],
+          ['Hanging', 2],
+          ['Suffocation',    7]
+          ['Cutting and Piercing',  2]
+        ]);
+
+        var options = {
+          title: 'Suicide Methods',
+          legend: 'none',
+          pieSliceText: 'label',
+
+          # To separate a slice, create a slices object and assign 
+          # the appropriate slice number an offset between 0 and 1
+          slices: {  4: {offset: 0.2},
+                    12: {offset: 0.3},
+                    14: {offset: 0.4},
+                    15: {offset: 0.5},
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
