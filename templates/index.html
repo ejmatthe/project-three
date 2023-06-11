@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Rates of Death by Suicide</title>
-  
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+
   <!-- D3 library -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
+
   <!-- ChartJS library -->
   <script src="https://cdnjs.com/libraries/Chart.js"></script>
 
@@ -18,13 +25,16 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
+  
+  <!-- Plotly Library -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = '/css/style.css') }}">
 </head>
 <body>
   <!-- Our JavaScript file -->
-  <script type="text/javascript" src="static/js/logic.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
     <!-- HTML to set up page structure -->
     <div class="container">
       <div class="row">
