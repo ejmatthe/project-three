@@ -12,9 +12,30 @@ Base = automap_base()
 Base.prepare(autoload_with=engine)
 session = Session(engine)
 
+# Read in CSVs as DataFrames and load to database
+causes_df = pd.read_csv("output/causes.csv")
+demographics_df = pd.read_csv("output/demographics.csv")
+connection = engine.connect()
+causes_df.to_sql("Causes", connection, if_exists="replace")
+demographics_df.to_sql("Demographics", connection, if_exists="replace")
+
+
 # Set up Flask and routes
 app = Flask(__name__)
 
+# JSONifying and setting route for demographics_df
+@app.route("/api/demographics.json")
+def demoSummary():
+    resultsDemo = engine.execute("SELECT * FROM Demographics")
+    return jsonify([dict(x) for x in resultsDemo])
+
+# JSONifying and setting route for causes_df
+@app.route("/api/causes.json")
+def causeSummary():
+    resultsCauses = engine.execute("SELECT * FROM Causes")
+    return jsonify([dict(x) for x in resultsCauses])
+
+# Setting default "homepage" app route
 @app.route("/")
 def home():
     return render_template("index.html")
