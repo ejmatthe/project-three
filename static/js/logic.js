@@ -1,6 +1,6 @@
 // Define initialize function
 function init() {
-    let initAge = "85+";
+    let initAge = "85+ years";
     plotLineCharts(initAge);
 };
 init();
@@ -10,13 +10,14 @@ function optionChanged(newAge) {
     plotLineCharts(newAge);
 };
 
+// Settling a variable that will be used in plotLineCharts to destroy previous chart to repopulate
+var chartExists = null;
 
 // Defining function for linecharts, which will change upon dropdown selection
 function plotLineCharts(ageGroup) {
     const demographicsAggData = "http://127.0.0.1:5000/api/demographicsAggregate.json"
     d3.json(demographicsAggData).then(data => {
         // Set data to an array for manipulation and then filter by age group
-        let dataArray = data
         let filteredDemographics = dataArray.filter(age => age.Age == ageGroup);
         console.log(filteredDemographics);
         // Create arrays for each region
@@ -40,35 +41,55 @@ function plotLineCharts(ageGroup) {
                 traceRegion4List.push(row);
             }
         };
-        // Create traces for each Region
-        const traceRegion1 = {
-            x: traceRegion1List.map(year => year.Year),
-            y: traceRegion1List.map(_ => _["Crude Rate"]),
-            type: "scatter",
-            name: "Region 1"
+        // Checking the chartExists variable, and clearing it if there's any data there
+        if (chartExists!=null) {
+            chartExists.destroy();
         }
-        const traceRegion2 = {
-            x: traceRegion2List.map(year => year.Year),
-            y: traceRegion2List.map(_ => _["Crude Rate"]),
-            type: "scatter",
-            name: "Region 2"
-        }
-        const traceRegion3 = {
-            x: traceRegion3List.map(year => year.Year),
-            y: traceRegion3List.map(_ => _["Crude Rate"]),
-            type: "scatter",
-            name: "Region 3"
-        }
-        const traceRegion4 = {
-            x: traceRegion4List.map(year => year.Year),
-            y: traceRegion4List.map(_ => _["Crude Rate"]),
-            type: "scatter",
-            name: "Region 4"
-        }
-        console.log(traceRegion1);
-
-        // Combines traces in array and make the plot
-        let traceGroup = [traceRegion1, traceRegion2, traceRegion3, traceRegion4];
-        Plotly.newPlot("bar", traceGroup);
+        // Hardcoding the years in for x-axis labels
+        const dataYears = [1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,
+            2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+        
+        // Creating the chart in chart.js and assigning it to the chartExists variable
+        // Assigning to the chartExists variable allows for the check and destroy
+        // necessary to draw a new Chart
+        chartExists = new Chart(
+            document.getElementById('lineCharts'),
+            {
+                type: 'line',
+                data: {
+                    labels: dataYears,
+                    datasets: [
+                        {
+                            label: "Region 1",
+                            data: traceRegion1List.map(_ => _["Crude Rate"]),
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension:0.1
+                        },
+                        {
+                            label: "Region 2",
+                            data: traceRegion2List.map(_ => _["Crude Rate"]),
+                            fill: false,
+                            borderColor: 'rgb(252, 186, 3)',
+                            tension:0.1
+                        },
+                        {
+                            label: "Region 3",
+                            data: traceRegion3List.map(_ => _["Crude Rate"]),
+                            fill: false,
+                            borderColor: 'rgb(252, 3, 227)',
+                            tension:0.1
+                        },
+                        {
+                            label: "Region 4",
+                            data: traceRegion4List.map(_ => _["Crude Rate"]),
+                            fill: false,
+                            borderColor: 'rgb(16, 173, 2)',
+                            tension:0.1
+                        }
+                    ]
+                }
+            }
+        );
     })
 };
