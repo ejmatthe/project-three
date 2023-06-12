@@ -79,7 +79,7 @@ colors = ["rgb(255,0,0)", "rgb(0,128,0)", "rgb(0,0,255)", "rgb(255,20,147)", "rg
 
 
 # Explode out the 'Firearms' pie piece by offsetting it a greater amount
-explode = (0.1, 0.1, 0.1, 0.4)
+explode = ["0.1, 0.1, 0.1, , 0.1, 0.4"]
 
 fig, ax = plt.subplots()
 ax.pie(sizes,
