@@ -34,13 +34,15 @@ function plotLineCharts(ageGroup) {
             else if (row["Census Region Code"] == "CENS-R2") {
                     traceRegion2List.push(row);
                 }
-            else if (row["Census Region Code"] = "CENS-R3") {
+            else if (row["Census Region Code"] == "CENS-R3") {
                     traceRegion3List.push(row);
                 }
             else {
                 traceRegion4List.push(row);
             }
         };
+
+        console.log(traceRegion4List);
         // Checking the chartExists variable, and clearing it if there's any data there
         if (chartExists!=null) {
             chartExists.destroy();
