@@ -1,8 +1,20 @@
+// Define initialize function
+function init() {
+    let initAge = "85+";
+    plotLineCharts(initAge);
+};
+init();
+
+// Define optionChanged function from index.html
+function optionChanged(newAge) {
+    plotLineCharts(newAge);
+};
+
 
 // Defining function for linecharts, which will change upon dropdown selection
 function plotLineCharts(ageGroup) {
-    const demographicsData = "http://127.0.0.1:5000/api/demographics.json"
-    d3.json(demographicsData).then(data => {
+    const demographicsAggData = "http://127.0.0.1:5000/api/demographicsAggregate.json"
+    d3.json(demographicsAggData).then(data => {
         // Set data to an array for manipulation and then filter by age group
         let dataArray = data
         let filteredDemographics = dataArray.filter(age => age.Age == ageGroup);
@@ -60,6 +72,3 @@ function plotLineCharts(ageGroup) {
         Plotly.newPlot("bar", traceGroup);
     })
 };
-
-// This is meant to hard-code a variable and use the function to make sure the logic works.
-plotLineCharts("35-44 years");
