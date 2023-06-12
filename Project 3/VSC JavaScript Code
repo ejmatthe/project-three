@@ -33,7 +33,16 @@ Base.prepare(autoload_with=engine)
           ['Cutting and Pierce',  2]
           ['Drowning', 2]
         ]);
+        
+         
+        [Firearms], color ; "rgb(255,0,0)",
+        [Suffocation], color;  "rgb(0,128,0)",
+        [Posioning], color;    "rgb(0,0,255)",
+        [Cutting/Pierce], color;  "rgb(255,20,147)",
+        [Drowning], color;   "rgb(128,0,128)",
 
+        
+      
         var options = {
           title: 'Suicide Methods'
         };
