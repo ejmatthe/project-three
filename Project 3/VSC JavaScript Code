@@ -29,10 +29,9 @@ Base.prepare(autoload_with=engine)
           ['Suicides', 'Deaths (per hundred thousand)'],
           ['Firearms',     11],
           ['Poisoning',      2],
-          ['Overdose',  2],
-          ['Hanging', 2],
           ['Suffocation',    7]
-          ['Cutting and Piercing',  2]
+          ['Cutting and Pierce',  2]
+          ['Drowning', 2]
         ]);
 
         var options = {
@@ -60,13 +59,12 @@ Base.prepare(autoload_with=engine)
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          [''Suicides', 'Deaths (per hundred thousand)''],
+        ['Suicides', 'Deaths (per hundred thousand)'],
           ['Firearms',     11],
           ['Poisoning',      2],
-          ['Overdose',  2],
-          ['Hanging', 2],
           ['Suffocation',    7]
-          ['Cutting and Piercing',  2]
+          ['Cutting and Pierce',  2]
+          ['Drowning', 2]
         ]);
 
         var options = {
@@ -84,7 +82,7 @@ Base.prepare(autoload_with=engine)
   </body>
 </html>
 
- # A Donut Pie Chart
+# A Donut Pie Chart
 
  <html>
   <head>
@@ -94,13 +92,12 @@ Base.prepare(autoload_with=engine)
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Suicides', 'Deaths (per hundred thousand)'],
+        ['Suicides', 'Deaths (per hundred thousand)'],
           ['Firearms',     11],
           ['Poisoning',      2],
-          ['Overdose',  2],
-          ['Hanging', 2],
           ['Suffocation',    7]
-          ['Cutting and Piercing',  2]
+          ['Cutting and Pierce',  2]
+          ['Drowning', 2]
         ]);
 
         var options = {
@@ -128,13 +125,12 @@ Base.prepare(autoload_with=engine)
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Suicides', 'Deaths (per hundred thousand)'],
+        ['Suicides', 'Deaths (per hundred thousand)'],
           ['Firearms',     11],
           ['Poisoning',      2],
-          ['Overdose',  2],
-          ['Hanging', 2],
           ['Suffocation',    7]
-          ['Cutting and Piercing',  2]
+          ['Cutting and Pierce',  2]
+          ['Drowning', 2]
         ]);
 
         var options = {
@@ -142,8 +138,7 @@ Base.prepare(autoload_with=engine)
           legend: 'none',
           pieSliceText: 'label',
 
-          # To separate a slice, create a slices object and assign 
-          # the appropriate slice number an offset between 0 and 1
+
           slices: {  4: {offset: 0.2},
                     12: {offset: 0.3},
                     14: {offset: 0.4},
