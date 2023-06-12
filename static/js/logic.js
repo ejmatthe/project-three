@@ -16,7 +16,7 @@ var chartExists = null;
 // Defining function for linecharts, which will change upon dropdown selection
 function plotLineCharts(ageGroup) {
     const demographicsAggData = "http://127.0.0.1:5000/api/demographicsAggregate.json"
-    d3.json(demographicsAggData).then(data => {
+    d3.json(demographicsAggData).then(dataArray => {
         // Set data to an array for manipulation and then filter by age group
         let filteredDemographics = dataArray.filter(age => age.Age == ageGroup);
         console.log(filteredDemographics);

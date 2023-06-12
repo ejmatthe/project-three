@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rates of Death by Suicide</title>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  <title>Rates of Death by Suicide - A Comparison</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -12,19 +12,9 @@
 
   <!-- D3 library -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
-
+  
   <!-- ChartJS library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.js"></script>
-
-  <!-- Leaflet JavaScript code -->
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-  crossorigin=""></script>
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-  crossorigin=""/>
   
   <!-- Plotly Library -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -33,51 +23,27 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = '/css/style.css') }}">
 </head>
 <body>
-  <!-- Our JavaScript file -->
-  <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
-    <!-- HTML to set up page structure -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 jumbotron text-center">
-          <h1>CHANGE TEXT HERE</h1>
-          <p>CHANGE TEXT HERE</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-          <div class="well">
-            <h5>CHANGE TEXT HERE</h5>
-            <select id="selDataset" onchange="optionChanged(this.value)">
-              <option selected value="5-14 years">5-14 Years</option>
-              <option selected value="15-24 years">15-24 Years</option>
-              <option selected value="25-34 years">25-34 Years</option>
-              <option selected value="35-44 years">35-44 Years</option>
-              <option selected value="45-54 years">45-54 Years</option>
-              <option selected value="55-64 years">55-64 Years</option>
-              <option selected value="65-74 years">65-74 Years</option>
-              <option selected value="75-84 years">75-84 Years</option>
-              <option selected value="85+ years">85+ Years</option>
-            </select>
-          </div>
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">CHANGE TEXT HERE</h3>
-            </div>
-            <div id="sample-metadata" class="panel-body"></div>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div id="bar"></div>
-        </div>
-        <div class="col-md-5">
-          <div id="gauge"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="bubble"></div>
-        </div>
-      </div>
+    <!-- Our JavaScript file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    <div class="col-md-12 jumbotron text-center">
+        <h1>Selected Summary of Suicide Statistics</h1>
+    </div>
+    <div class="well">
+        <h5>Select an age group</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)">
+          <option selected value="5-14 years">5-14 Years</option>
+          <option selected value="15-24 years">15-24 Years</option>
+          <option selected value="25-34 years">25-34 Years</option>
+          <option selected value="35-44 years">35-44 Years</option>
+          <option selected value="45-54 years">45-54 Years</option>
+          <option selected value="55-64 years">55-64 Years</option>
+          <option selected value="65-74 years">65-74 Years</option>
+          <option selected value="75-84 years">75-84 Years</option>
+          <option selected value="85+ years">85+ Years</option>
+        </select>
+    </div>
+    <div class="col-md-5">
+        <div style="width: 800px;"><canvas id="lineCharts"></canvas></div>
     </div>
 </body>
 </html>
