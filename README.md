@@ -31,4 +31,5 @@ As mentioned in the prior section, logic.js is the main JavaScript file. The ind
 ## Conclusion
 We were able to make a dashboard that is functional, fluid, and responsive. The next project will utilize a raw data source that can further be filtered to derive the crude suicide rate for each age group by race, gender, and means of suicide. 
 
-Interactive charts on suicide using world suicide data will enhance the visual experience. 
+### Future consideration
+Interactive charts on suicide using world suicide data will enhance the visual experience by mapping it together so the user can see the changes in all images by specific selection. 
