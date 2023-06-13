@@ -48,6 +48,7 @@ var pieLabels = ['Firearm', 'Suffocation', 'Posioning', 'Cutting and Pierce', 'D
 
 var pieSizes = [54.6, 11.6, 25.8 ,0, 0]
 
+// # Add Colors Decimal Code (Red, Green, Blue, DeepPink, Purple)
 var pieColors = ["rgb(255,0,0)", "rgb(0,128,0)", "rgb(0,0,255)", "rgb(255,20,147)", "rgb(128,0,128)"]
 
 
