@@ -36,11 +36,12 @@
 });
 
 
-// Add Colors Decimal Code (orange, deepskyblue, fuschia, chocolate)
+
    var pieLabels = ['White', 'Black or African American', 'American Indian or Alaska Native', 'Asian or Pacific Islander']
 
    var pieSizes = [54.6, 11.6, 25.8 ,0]
 
+// Add Colors Decimal Code (orange, deepskyblue, fuschia, chocolate)
    var pieColors = ["rgb(255,165,0)", "rgb(0,191,255)", "rgb(255,0,255)", "rgb(210,105,30)"]
 
 
