@@ -2,6 +2,7 @@
 function init() {
     let initAge = "85+ years";
     plotLineCharts(initAge);
+    plotPieCharts();
 };
 init();
 
@@ -95,3 +96,99 @@ function plotLineCharts(ageGroup) {
         );
     })
 };
+
+// Functions for pie charts 
+function plotPieCharts() {
+    const causeData = "http://127.0.0.1:5000/api/causes.json"
+    d3.json(causeData).then(data => {
+    let causeAnnual = data.filter(year => year.Year == "2020");
+    labels = ["Firearm", "Suffocation", "Poisoning", "Cut/Piercing", "Drowning"];
+    labelsDemo = ["White", "Black", "Asian or Pacific Islander", "American Indian or Alaskan Native"]
+    colors = ["rgb(255,0,0)", "rgb(0,128,0)", "rgb(0,0,255)", "rgb(255,20,147)", "rgb(128,0,128)"]
+    firearmTotal = 0;
+    suffocationTotal = 0;
+    poisoningTotal = 0;
+    cutTotal = 0;
+    drowningTotal = 0;
+    for (let i=0; i < causeAnnual.length; i++) {
+        row = causeAnnual[i];
+        if (row["Injury Mechanism"] == "Firearm") {
+            firearmDeath = parseFloat(row["Crude Rate"])
+            firearmTotal += firearmDeath;
+        }
+        else if (row["Injury Mechanism"] == "Suffocation") {
+            suffocationDeath = parseFloat(row["Crude Rate"])
+            suffocationTotal += suffocationDeath;
+        }
+        else if (row["Injury Mechanism"] == "Poisoning") {
+            poisoningDeath = parseFloat(row["Crude Rate"])
+            poisoningTotal += poisoningDeath;
+        }
+        else if (row["Injury Mechanism"] == "Cut/Pierce") {
+            cutDeath = parseFloat(row["Crude Rate"])
+            cutTotal += cutDeath;
+        }
+        else if (row["Injury Mechanism"] == "Drowning") {
+            drowningDeath = parseFloat(row["Crude Rate"])
+            drowningTotal += drowningDeath;
+        }}
+        let sizes = [firearmTotal, suffocationTotal, poisoningTotal, cutTotal, drowningTotal];
+        pieData = [{
+            values: sizes,
+            labels: labels,
+            type: 'pie',
+            marker: {
+                colors: colors
+            }
+        }]
+        var layout = {
+            height: 800,
+            width: 800,
+        };
+        Plotly.newPlot("pieCharts", pieData, layout)
+    })
+    const demographicsData = "http://127.0.0.1:5000/api/demographics.json"
+    d3.json(demographicsData).then(dataDemo => {
+        let demoAnnual = dataDemo.filter(year => year.Year == "2020");
+        console.log(demoAnnual)
+        whiteTotal = 0;
+        blackTotal = 0;
+        asianTotal = 0;
+        nativeTotal = 0;
+        for (let i=0; i < demoAnnual.length; i++) {
+            rowDemo = demoAnnual[i];
+            if (rowDemo["Race"] == "White") {
+                whiteDeath = rowDemo["Deaths"]
+                whiteTotal = whiteTotal + whiteDeath;
+            }
+            else if (rowDemo["Race"] == "Black or African American") {
+                blackDeath = rowDemo["Deaths"]
+                blackTotal += blackDeath;
+            }
+            else if (rowDemo["Race"] == "Asian or Pacific Islander") {
+                asianDeath = rowDemo["Deaths"]
+                asianTotal += asianDeath;
+            }
+            else if (rowDemo["Race"] == "American Indian or Alaska Native") {
+                nativeDeath = rowDemo["Deaths"]
+                nativeTotal += nativeDeath;
+            }
+        
+        }
+        console.log(whiteTotal)
+        var sizesDemo = [whiteTotal, blackTotal, asianTotal, nativeTotal]
+        pieData2 = [{
+            values: sizesDemo,
+            labels: labelsDemo,
+            type: 'pie',
+            marker: {
+                colors: colors
+            }
+        }]
+        var layout = {
+            height: 800,
+            width: 800,
+        };
+        Plotly.newPlot("pieCharts2", pieData2, layout)
+    })
+}
