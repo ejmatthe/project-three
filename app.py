@@ -34,6 +34,7 @@ def causeSummary():
     resultsCauses = engine.execute("SELECT * FROM Causes")
     return jsonify([dict(x) for x in resultsCauses])
 
+
 # Setting default "homepage" app route
 @app.route("/")
 def home():
