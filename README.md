@@ -4,6 +4,11 @@ The goal for this project was to create a dashboard of different visualizations 
 ## Background Information
 Our data was once again sourced from the Centers for Disease Control and Prevention (CDC), using their CDC Wonder system. This provides some benefits, as well as some limitations. A major benefit is that the data can be considered reliable and consistent. The data is also largely already cleaned, organized and readable. However, there is also a major limitation. The main trade-off is that, as a result of the data's reliability and consistency, the available data only goes up through 2020 at the time of our project. There may be trends or patterns developing that are missed due to this limitation.
 
+<p align="center">
+  <img src="https://github.com/ejmatthe/project-three/blob/f91bda6db7e138a8dc3a96eb306a51555186eda8/Resources/full-stack-web-developer.png" />
+</p>
+
+
 With data in hand, we began to work on the project, using a wide variety of tools. The main ones used include:
   * Jupyter Notebook
   * SQLite
