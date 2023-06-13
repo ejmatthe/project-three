@@ -31,6 +31,7 @@
         <h1>Selected Summary of Suicide Statistics</h1>
     </div>
     <div class="well">
+      <h4>Suicides by Age Group</h4>
         <h5>Select an age group</h5>
         <select id="selDataset" onchange="optionChanged(this.value)">
           <option selected value="5-14 years">5-14 Years</option>
@@ -47,13 +48,15 @@
     <div class="col-md-5">
         <div style="width: 800px;"><canvas id="lineCharts"></canvas></div>
     </div>
+    <h4>Suicides by Cause in 2020</h4>
     <div class="col-md-6">
         <div style="width: 800px" id="pieCharts"></div>
     </div>
+    <h4>Suicides by Race in 2020</h4>
     <div class="col-md-7">
       <div style="width: 800px" id="pieCharts2"></div>
   </div>
-  <h1>Regional Map</h1>
+  <h4>Regional Map</h4>
     <div id="map"></div>
     <style type="text/css">
   .legend{color: black; width: 100%; font-family: arial; font-size: 14px;}    
