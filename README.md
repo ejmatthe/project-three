@@ -13,6 +13,8 @@ With data in hand, we began to work on the project, using a wide variety of tool
   * Chart.JS
   * Plotly
 
+
+
 ## Code 
 ### Jupyter Notebook
 Jupyter Notebook is the environment we used to clean and shape our data after getting it from CDC Wonder but before loading it into our database. We used three separate datasets - one that grouped deaths by region, age group and race, another that grouped by region and cause of death, and a third one that grouped only by region and age (all three were also grouped by year, in order to provide a way to look at yearly trends). In the same Jupyter Notebook instance, we used SQL Alchemy to then load those three datasets into our database for later use.
@@ -22,4 +24,6 @@ Creating the dashboard relied on 3 separate files - "app.py", "index.html", and 
 As mentioned in the prior section, logic.js is the main JavaScript file. The index.html page loads and runs the script. There are 4 main functions - an "init" function to populate data and charts when the page first loads, an "optionChanged" function to update the charts when a dropdown is selected, a function to plot the line charts and one to plot the pie charts. The last 2 functions are where we use the other 3 Flask pathways, as they call in data from the JSON file to use as a basis for the plots. The line chart is designed using Chart.JS, and as such, adds a couple extra nuances. One such nuance is that it cannot print a new plot on an existing one. In order to work around that, there is a variable that is originally set to be "null". The line plot function checks that variable, and if it is anything other than "null", it destroys the variable. Then, after that step, the function sets the same variable to match the Chart.JS plot, which populates it. The pie charts use for loops to cycle through the JSON files it calls, in order to find records that match the necessary criteria, and assign them to a variable. Once the loop is finished, Plotly designs and populates the pie chart. Finally, the US Map runs off of two of its own script files as well as some additional constraints in the HTML.
 
 ## Conclusion
-We were able to make a dashboard that is functional, fluid and responsive.
+We were able to make a dashboard that is functional, fluid, and responsive. The next project will utilize a raw data source that can further be filtered to derive the crude suicide rate for each age group by race, gender, and means of suicide. 
+
+Interactive charts on suicide using world suicide data will enhance the visual experience. 
