@@ -1,6 +1,8 @@
 # Project 3 Overview
 The goal for this project was to create a dashboard of different visualizations that allow the user to get a basic understanding of the data and some of the differences that impact suicides nationwide. While it is a problem that affects everyone in this country, regardless of age, race, class, or status, there are still notable differences based on demographic differences. To better understand the problem, our dashboard includes visualizations that show the differences in rates between different census defined regions.
 
+Source: https://wonder.cdc.gov/controller/datarequest/D77;jsessionid=2886C24EE0D055AD397D3658A85B 
+
 ## Background Information
 Our data was once again sourced from the Centers for Disease Control and Prevention (CDC), using their CDC Wonder system. This provides some benefits, as well as some limitations. A major benefit is that the data can be considered reliable and consistent. The data is also largely already cleaned, organized and readable. However, there is also a major limitation. The main trade-off is that, as a result of the data's reliability and consistency, the available data only goes up through 2020 at the time of our project. There may be trends or patterns developing that are missed due to this limitation.
 
@@ -31,5 +33,5 @@ As mentioned in the prior section, logic.js is the main JavaScript file. The ind
 ## Conclusion
 We were able to make a dashboard that is functional, fluid, and responsive. The next project will utilize a raw data source that can further be filtered to derive the crude suicide rate for each age group by race, gender, and means of suicide. 
 
-### Future consideration
+## Future consideration
 Interactive charts on suicide using world suicide data will enhance the visual experience by mapping it together so the user can see the changes in all images by specific selection. 
