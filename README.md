@@ -1,5 +1,5 @@
 # Project 3 Overview
-The goal for this project was to create a dashboard of different visualizations that allow the user to get a basic understanding of the data and some of the differences that impact suicide nationwide. While it is a problem that affects everyone in this country, regardless of age, race, class or state, there are still notable differences based on demographic differences. To better understand the problem, our dashboard includes visualizations that show the differences in rates between different census defined regions
+The goal for this project was to create a dashboard of different visualizations that allow the user to get a basic understanding of the data and some of the differences that impact suicides nationwide. While it is a problem that affects everyone in this country, regardless of age, race, class, or status, there are still notable differences based on demographic differences. To better understand the problem, our dashboard includes visualizations that show the differences in rates between different census defined regions
 
 ## Methods 
 ### Background Information
