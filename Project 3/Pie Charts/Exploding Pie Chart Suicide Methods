@@ -1,0 +1,66 @@
+//Explode Pie Chart 'Suicide Methods'
+
+// Pie chart, where the slices will be ordered and plotted counter-clockwise:
+anychart.onDocumentReady(function() {
+
+// set the data
+var data = [,
+['Firearms',     11],
+['Poisoning',      2],
+['Suffocation',    7]
+['Cutting and Pierce',  2]
+['Drowning', 2]
+
+];
+
+// create the chart
+var chart = anychart.pie();
+
+// set the chart title
+chart.title('Suicide Methods');
+
+// add the data
+chart.data(data);
+
+// display the chart in the container
+chart.container('container');
+chart.draw();
+
+// By default, the legend is placed at the bottom of the chart.To move the legend to the right and make its elements stack vertically,
+// add the following setting to the code: 
+
+// set legend position
+chart.legend().position("right");
+// set items layout
+chart.legend().itemsLayout("vertical");
+
+x: "Firearms", value; 11, exploded; true},
+
+
+);
+
+
+
+
+
+
+var pieLabels = ['Firearm', 'Suffocation', 'Posioning', 'Cutting and Pierce', 'Drowning']
+
+var pieSizes = [54.6, 11.6, 25.8 ,0, 0]
+
+// # Add Colors Decimal Code (Red, Green, Blue, DeepPink, Purple)
+var pieColors = ["rgb(255,0,0)", "rgb(0,128,0)", "rgb(0,0,255)", "rgb(255,20,147)", "rgb(128,0,128)"]
+
+
+var data = [{
+    values: pieSizes,
+    labels: pieLabels,
+    type: "pie",
+    name: "Pie Chart",
+    marker: {
+        colors: pieColors
+
+    }}];
+
+
+

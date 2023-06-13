@@ -1,0 +1,59 @@
+//Explode Pie Chart 'Race'
+
+
+// Pie chart, where the slices will be ordered and plotted counter-clockwise:
+  anychart.onDocumentReady(function() {
+
+// set the data
+  var data = [
+      {x: "White", value: 10},
+      {x: "Black or African American", value: 20},
+      {x: "American Indian or Alaska Native", value: 30},
+      {x: "Asian or Pacific Islander", value: 40},
+      
+  ];
+
+// create the chart
+  var chart = anychart.pie();
+
+// set the chart title
+  chart.title("Suicides By Race");
+
+// add the data
+  chart.data(data);
+
+// display the chart in the container
+  chart.container('container');
+  chart.draw();
+
+// By default, the legend is placed at the bottom of the chart.To move the legend to the right and make its elements stack vertically,
+// add the following setting to the code: 
+
+// set legend position
+  chart.legend().position("right");
+// set items layout
+  chart.legend().itemsLayout("vertical");
+
+  x: "White", value; 10, exploded; true},
+
+);
+
+
+
+   var pieLabels = ['White', 'Black or African American', 'American Indian or Alaska Native', 'Asian or Pacific Islander']
+
+   var pieSizes = [54.6, 11.6, 25.8 ,0]
+
+// Add Colors Decimal Code (orange, deepskyblue, fuschia, chocolate)
+   var pieColors = ["rgb(255,165,0)", "rgb(0,191,255)", "rgb(255,0,255)", "rgb(210,105,30)"]
+
+
+    var data = [{
+    values: pieSizes,
+    labels: pieLabels,
+    type: "pie",
+    name: "Pie Chart",
+    marker: {
+        colors: pieColors
+
+    }}];
